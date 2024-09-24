@@ -1,6 +1,7 @@
 // Get DOM elements
 const introScreen = document.getElementById('intro-screen');
 const gameScreen = document.getElementById('game-screen');
+const endScreen = document.getElementById('end-screen');
 const startButton = document.getElementById('start-button');
 const gradeSelect = document.getElementById('grade');
 const timerInput = document.getElementById('timer');
@@ -11,10 +12,13 @@ const optionButtons = document.querySelectorAll('.option-button');
 const feedbackDiv = document.getElementById('feedback');
 const feedbackText = document.getElementById('feedback-text');
 const nextButton = document.getElementById('next-button');
+const finalScoreText = document.getElementById('final-score-text');
+const retryButton = document.getElementById('retry-button');
 
 let timer;
 let timeLeft;
 let score = 0;
+let totalQuestions = 0;
 let currentNumber = 0;
 let maxNumber = 100000;
 let correctFrench = '';
@@ -29,6 +33,11 @@ nextButton.addEventListener('click', () => {
     resetBackground();
     nextQuestion();
 });
+retryButton.addEventListener('click', () => {
+    endScreen.classList.add('hidden');
+    introScreen.classList.remove('hidden');
+    resetGame();
+});
 
 // Start Game Function
 function startGame() {
@@ -36,6 +45,7 @@ function startGame() {
     maxNumber = grade === '5' ? 100000 : 1000000;
     timeLeft = parseInt(timerInput.value) * 60;
     score = 0;
+    totalQuestions = 0;
     scoreSpan.textContent = score;
     introScreen.classList.add('hidden');
     gameScreen.classList.remove('hidden');
@@ -72,9 +82,25 @@ function pad(n) {
 
 // End Game Function
 function endGame() {
-    alert(`Le temps est écoulé! Votre score : ${score}`);
     gameScreen.classList.add('hidden');
-    introScreen.classList.remove('hidden');
+    endScreen.classList.remove('hidden');
+    displayFinalScore();
+}
+
+// Display Final Score Function
+function displayFinalScore() {
+    const percentage = totalQuestions === 0 ? 0 : ((score / totalQuestions) * 100).toFixed(2);
+    finalScoreText.textContent = `Vous avez correctement répondu à ${score} questions sur ${totalQuestions} (${percentage}%)`;
+}
+
+// Reset Game Function
+function resetGame() {
+    score = 0;
+    totalQuestions = 0;
+    scoreSpan.textContent = score;
+    timeLeft = parseInt(timerInput.value) * 60;
+    updateTimerDisplay();
+    resetBackground();
 }
 
 // Generate Next Question
@@ -99,6 +125,7 @@ function formatNumber(n) {
 function handleOptionClick(event) {
     const selectedOption = event.target.textContent.trim().toLowerCase();
     const isCorrect = selectedOption === correctFrench.toLowerCase();
+    totalQuestions++;
     if (isCorrect) {
         score++;
         scoreSpan.textContent = score;
