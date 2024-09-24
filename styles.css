@@ -154,6 +154,41 @@ button:hover {
     background-color: #e68a00;
 }
 
+/* End Screen Styles */
+#end-screen {
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+#end-screen .final-score {
+    text-align: center;
+}
+
+#end-screen h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #333;
+    text-shadow: 1px 1px #fff;
+}
+
+#final-score-text {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+#retry-button {
+    background-color: #2196F3;
+    color: white;
+}
+
+#retry-button:hover {
+    background-color: #1976D2;
+    transform: scale(1.05);
+}
+
 /* Background Color Feedback */
 body.correct-answer {
     background-color: #4CAF50;
@@ -209,6 +244,15 @@ body.incorrect-answer {
         padding: 8px 20px;
         font-size: 0.9em;
     }
+
+    /* End Screen Styles */
+    #end-screen h2 {
+        font-size: 2.5em;
+    }
+
+    #final-score-text {
+        font-size: 1.5em;
+    }
 }
 
 @media (max-width: 480px) {
@@ -228,5 +272,14 @@ body.incorrect-answer {
     .top-bar {
         flex-direction: column;
         padding: 10px 0;
+    }
+
+    /* End Screen Styles */
+    #end-screen h2 {
+        font-size: 2em;
+    }
+
+    #final-score-text {
+        font-size: 1.2em;
     }
 }
