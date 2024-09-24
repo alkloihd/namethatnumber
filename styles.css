@@ -1,0 +1,232 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    transition: background-color 0.5s;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Intro Screen Styles */
+#intro-screen {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+#intro-screen h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #333;
+    text-shadow: 1px 1px #fff;
+}
+
+.form-group {
+    margin: 20px 0;
+}
+
+label {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+select, input[type="number"] {
+    padding: 10px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    padding: 15px 30px;
+    margin: 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+#start-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Game Screen Styles */
+.top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    background-color: #000;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 1.2em;
+}
+
+.number-display {
+    margin-top: 100px; /* Adjusted for fixed top bar */
+    font-size: 4em;
+    color: #fff;
+    text-shadow: 2px 2px #000;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 50px;
+    width: 80%;
+    max-width: 600px;
+}
+
+.option-button {
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+    color: #000;
+    font-size: 1em;
+    border-radius: 10px;
+    border: 2px solid #000;
+    text-align: center;
+    padding: 10px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.option-button.correct {
+    background-color: #4CAF50 !important;
+    color: #fff;
+    border: none;
+}
+
+.option-button.incorrect {
+    background-color: #f44336 !important;
+    color: #fff;
+    border: none;
+}
+
+.feedback {
+    margin-top: 30px;
+}
+
+.feedback p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+#next-button {
+    background-color: #FF9800;
+    color: white;
+    padding: 10px 25px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#next-button:hover {
+    transform: scale(1.05);
+    background-color: #e68a00;
+}
+
+/* Background Color Feedback */
+body.correct-answer {
+    background-color: #4CAF50;
+}
+
+body.incorrect-answer {
+    background-color: #f44336;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #intro-screen h1 {
+        font-size: 2em;
+    }
+
+    .form-group {
+        margin: 15px 0;
+    }
+
+    label {
+        font-size: 1em;
+    }
+
+    select, input[type="number"] {
+        font-size: 0.9em;
+    }
+
+    button {
+        padding: 12px 25px;
+        margin: 15px;
+        font-size: 1em;
+    }
+
+    .top-bar {
+        font-size: 1em;
+    }
+
+    .number-display {
+        font-size: 3em;
+    }
+
+    .option-button {
+        height: 70px;
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    .feedback p {
+        font-size: 1.2em;
+    }
+
+    #next-button {
+        padding: 8px 20px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .option-button {
+        height: 60px;
+        font-size: 0.8em;
+    }
+
+    .number-display {
+        font-size: 2.5em;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEUX D'IDENTIFICATION DES NUMÉROS - Par Lodhia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Intro Screen -->
+    <div id="intro-screen" class="screen">
+        <h1>JEUX D'IDENTIFICATION DES NUMÉROS - Par Lodhia</h1>
+        <div class="form-group">
+            <label for="grade">Sélectionnez la Classe :</label>
+            <select id="grade">
+                <option value="5">Classe 5 (Jusqu'à 100 000)</option>
+                <option value="6">Classe 6 (Jusqu'à 1 000 000)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="timer">Sélectionnez le Temps (minutes) :</label>
+            <input type="number" id="timer" min="1" max="60" value="5">
+        </div>
+        <button id="start-button">Commencer le Jeu</button>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen hidden">
+        <div class="top-bar">
+            <div class="timer">Temps Restant : <span id="time-left">00:00</span></div>
+            <div class="score">Score : <span id="score">0</span></div>
+        </div>
+        <div class="number-display">
+            <h2 id="number">0</h2>
+        </div>
+        <div class="options-grid">
+            <button class="option-button" id="option1">Option 1</button>
+            <button class="option-button" id="option2">Option 2</button>
+            <button class="option-button" id="option3">Option 3</button>
+            <button class="option-button" id="option4">Option 4</button>
+        </div>
+        <div id="feedback" class="feedback hidden">
+            <p id="feedback-text">Bonne réponse!</p>
+            <button id="next-button">Suivant</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
